@@ -1,6 +1,6 @@
 # Node.js | React | Docker | Nginx -- Boilerplate
 
-A ready to go Dockerized boilerplate for any web project, with Node.js backend, React frontend and Nginx proxy. 
+A ready to go Dockerized boilerplate for any web project, with Node.js backend, React frontend and Nginx proxy.
 
 ## Build and Test Locally
 
@@ -8,7 +8,8 @@ Make sure nothing is running on port 80 of your local machine
 
 Run `docker-compose up --build` from the root of the project to spin up the containers
 
-## Localhost Routes 
+## Localhost Routes
+
 Backend: http://localhost:80/api/
 
 Frontend: http://localhost:80/
@@ -19,13 +20,14 @@ This project has pre-configured Terraform code that will create all our AWS infr
 
 ### Step 1: Download this repo as a zip, create your own git repository, and push to Github
 
-Download the zip of this repo on your local machine. 
+Download the zip of this repo on your local machine.
 
-Then create an empty git repository inside with the `git init` command in the root directory. 
+Then create an empty git repository inside with the `git init` command in the root directory.
 
 Also create a repository on Github that you will push to. Commit all the files and push to Github.
 
 ### Step 2: Run the initialization script
+
 Run `./init.sh` in your terminal in the root directory, it will ask you for the following information:
 
 **AWS Account ID:** The AWS Account ID is found by logging into your AWS console and clicking the dropdown next to your name. The number next to 'My Account' is the account ID.
@@ -56,7 +58,7 @@ Or use Homebrew: `brew install terraform`
 
 ### Step 5: Run Terraform to create the AWS infrastructure
 
-`cd terraform` 
+`cd terraform`
 
 and then run the following commoand:
 
@@ -64,9 +66,10 @@ and then run the following commoand:
 
 After you run `terraform init`, there will likely be errors due to issues with 3rd party code. To fix these, make the following replacement:
 
-`required_version  "~> 0.12.0"` --> `required_version = ">= 0.12.0, < 0.14.0"`
+`required_version "~> 0.12.0"` --> `required_version = ">= 0.12.0, < 0.14.0"`
 
 Make the above change in the following files:
+
 - terraform/.terraform/modules/build.codebuild/versions.tf
 - terraform/.terraform/modules/build.codebuild.label/versions.tf
 - terraform/.terraform/modules/build.label/versions.tf
@@ -81,4 +84,4 @@ type "yes" when prompted to create the AWS infrastructure.
 
 ## Deploy
 
-Push to the master branch of your repo and CI/CD takes care of the rest!
+Push to the master branch of your repo and CI/CD takes care of the rest if everything ok.
